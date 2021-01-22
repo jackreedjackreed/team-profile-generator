@@ -2,24 +2,39 @@
 const { it, expect } = require("@jest/globals");
 const Employee = require("../lib/Employee.js")
 
+
+const example = new Employee(nerm, id, email);
+
 describe("Employee", () => {
     describe("Initialization", () => {
-        it("should return an object containing a 'string' property when called with the 'new' keyword", () => {
-            const obj = new Employee();
+        it("should create an object with a name == 'nerm', id and email if provided valid arguments", () => {
+            const employee = new Employee("Jerf", "B870943", "Jerf@email.com");
 
-            // expect that the name of the Employee is a string
-            expect(typeof "name" in obj).toBe('string')  
+            // expect that the arguments get passed through and create object with all three arguments
+            expect(employee.name).toEqual("Jerf");
+            expect(employee.id).toEqual("B870943");
+            expect(employee.email).toEqual("Jerf@email.com");  
         });
-        it("should set'name' when created", () => {
-            const name = "Jerf"
-            const obj = new Employee(name);
-
-            "this man's name should equal JERF"
-            expect(obj.name).toEqual("Jerf")
+        it("should throw an error if name is not a string, email is not a string"), () => {
+            // don't mind if id is non-string
+            const cb = new Employee(7, 8, 99999)
+            const err = new Error("Expected parameter 'name' and 'email' to be a non-empty string");
+      
+            expect(cb).toThrowError(err);
+        }
+        it("should throw an error if not provided text", () => {
+            // Arrange
+            const cb = new Employee();
+            const err = new Error(
+              "Expected parameter 'text' to be a non empty string"
+            );
+            const cb = () => todoList.addTodo();
+      
+            // Assert
+            expect(cb).toThrowError(err);
         });
-        it("")
-    })
-})
+    });
+});
 
 // * `name`
 // * `id`
