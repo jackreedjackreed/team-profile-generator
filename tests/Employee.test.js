@@ -1,37 +1,40 @@
 // The first class is an `Employee` parent class with the following properties and methods:
-const { it, expect } = require("@jest/globals");
 const Employee = require("../lib/Employee.js")
 
 
-const example = new Employee(nerm, id, email);
+const example = new Employee("Jerf", "B870943", "Jerf@email.com");
 
 describe("Employee", () => {
     describe("Initialization", () => {
-        it("should create an object with a name == 'nerm', id and email if provided valid arguments", () => {
+        it("should create an object with a name, id and email if provided valid arguments", () => {
             const employee = new Employee("Jerf", "B870943", "Jerf@email.com");
 
             // expect that the arguments get passed through and create object with all three arguments
-            expect(employee.nerm).toEqual("Jerf");
+            expect(employee.name).toEqual("Jerf");
             expect(employee.id).toEqual("B870943");
             expect(employee.email).toEqual("Jerf@email.com");  
         });
-        it("should throw an error if name is not a string, email is not a string"), () => {
+        it("should throw an error if name is not a string", () => {
             // don't mind if id is non-string
-            const cb = new Employee(7, 8, 99999)
-            const err = new Error("Expected parameter 'name' and 'email' to be a non-empty string");
+            const employee = () => new Employee(7, 8, 99999);
+            const err = new Error("Expected parameter 'name' to be a non-empty string");
       
-            expect(cb).toThrowError(err);
-        }
+            expect(employee).toThrowError(err);
+        });
+        it("should throw an error if name is not a string, email is not a string", () => {
+            // don't mind if id is non-string
+            const employee = () => new Employee("Jerf", 8, 99999);
+            const err = new Error("Expected parameter 'email' to be a string");
+      
+            expect(employee).toThrowError(err);
+        });
         it("should throw an error if not provided text", () => {
             // Arrange
-            const cb = new Employee();
+            const employee = () => new Employee("" , 3, "Jerf@email.com");
             const err = new Error(
-              "Expected parameter 'text' to be a non empty string"
-            );
-            const cb = () => todoList.addTodo();
-      
+              "Expected parameter 'email' to be a non-empty string")
             // Assert
-            expect(cb).toThrowError(err);
+            expect(employee).toThrowError(err);  
         });
     });
 });
