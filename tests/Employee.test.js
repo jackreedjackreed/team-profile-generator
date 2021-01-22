@@ -1,5 +1,5 @@
 // The first class is an `Employee` parent class with the following properties and methods:
-const { describe, expect } = require("@jest/globals");
+const { describe, expect, it } = require("@jest/globals");
 const Employee = require("../lib/Employee.js")
 
 
@@ -39,19 +39,27 @@ describe("Employee", () => {
         });
     });
     describe("getName", () => {
+        it("should return name of the employee", () => {
         const employee = new Employee("Jerf", "B870943", "Jerf@email.com")
         expect(employee.getName()).toEqual("Jerf")
+        });
     });
     describe("getId", () => {
+        it("should return id of the employee", () => {
         const employee = new Employee("Jerf", "B870943", "Jerf@email.com")
         expect(employee.getId()).toEqual("B870943")
+        });
     });
     describe("getEmail", () => {
+        it("should return email of the employee", () => {
         const employee = new Employee("Jerf", "B870943", "Jerf@email.com")
         expect(employee.getEmail()).toEqual("Jerf@email.com")
+        });
     });
     describe("getRole", () => {
+        it("should return role of the employee", () => {
         const employee = new Employee("Jerf", "B870943", "Jerf@email.com")
         expect(employee.getRole()).toEqual("Employee")
+        });
     });
 });
