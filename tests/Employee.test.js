@@ -28,11 +28,11 @@ describe("Employee", () => {
       
             expect(employee).toThrowError(err);
         });
-        it("should throw an error if not provided text", () => {
+        it("should throw an error if not provided text for name", () => {
             // Arrange
-            const employee = () => new Employee("" , 3, "Jerf@email.com");
+            const employee = () => new Employee("", 3, "Jerf@email.com");
             const err = new Error(
-              "Expected parameter 'email' to be a non-empty string")
+              "Expected parameter 'name' to be a non-empty string")
             // Assert
             expect(employee).toThrowError(err);  
         });
