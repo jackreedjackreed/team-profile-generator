@@ -52,6 +52,12 @@ var sharedQs = [
             }
         }
     }, 
+    {
+        type: 'list',
+        name: 'role',
+        message: "Select employee's role",
+        choices: ["Manager", "Engineer", "Intern", "Employee"],
+    }
     
 ]
 
@@ -62,12 +68,7 @@ function addNew() {
         sharedQs[0],
         sharedQs[1],
         sharedQs[2],
-        {
-            type: 'list',
-            name: 'role',
-            message: "Select employee's role",
-            choices: ["Manager", "Engineer", "Intern", "Employee"],
-        },
+        sharedQs[3],
     ]).then(answers => {
 
         // if manager = role, ask for office number
@@ -88,13 +89,13 @@ function addNew() {
             }])
             // create manager object
             .then(answers2 => {
-                console.log(answers2.officeNum)
                 const manager = new Manager(answers.name, answers.id, answers.email, answers2.officeNum, answers.role)
-                console.log(manager)
                 team.push(manager);
                 console.log(team);
                 addMore()
             });
+
+            // if engineer, ask for github account name
         } else if (answers.role === "Engineer") {
 
             inquirer.prompt([{
@@ -117,8 +118,40 @@ function addNew() {
                 console.log(team);
                 addMore();
             })
+        
+            // if intern, ask for school name
+        } else if (answers.role === "Intern") {
+
+            inquirer.prompt([{
+                type: 'input',
+                name: 'school',
+                message: "Enter intern's school name",
+                validate: school => {
+                    if (school) {
+                        return true
+                    } else {
+                        console.log(' Please enter valid school name');
+                        return false
+                    }
+                }
+            }])
+            .then(answers2 => {
+                console.log(answers2.school)
+                const intern = new Intern(answers.name, answers.id, answers.email, answers2.school, answers.role)
+                team.push(intern);
+                console.log(team);
+                addMore();
+            })
+
+            // if employee, ask make new employee
+        } else if (answers.role = "Employee") {
+                const Employee = new Employee(answers.name, answers.id, answers.email, answers.role)
+                team.push(Employee);
+                console.log(team);
+                addMore();
+            }
         }
-    })
+    )
 }
 
 function addMore() {
