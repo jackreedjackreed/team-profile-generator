@@ -1,8 +1,8 @@
-// import classes
-const Employee = require("../lib/Employee.js")
-const Manager = require("../lib/Manager.js")
-const Engineer = require("../lib/Engineer.js")
-const Intern = require("../lib/Intern.js")
+// import classes  
+const Employee = require("./lib/Employee.js")
+const Manager = require("./lib/Manager.js")
+const Engineer = require("./lib/Engineer.js")
+const Intern = require("./lib/Intern.js")
 
 // require modules
 const inquirer = require("inquirer")
@@ -15,7 +15,18 @@ var askOffice = "What is their office number?"
 var askGithub = "What is their github username?"
 var askSchool = "What school do they attend?"
 
-
+// application function
+function runApp() {
+    sharedQs.forEach(
+        inquirer
+        .prompt([{
+            type: 'input',
+            name: 'name',
+            message: sharedQs[i],
+        }])
+    )
+}
+runApp()
 
 // prompt user for team information
      // manager --> first
