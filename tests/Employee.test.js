@@ -1,4 +1,4 @@
-// The first class is an `Employee` parent class with the following properties and methods:
+// Employee Tests
 const Employee = require("../lib/Employee.js")
 
 describe("Employee", () => {
