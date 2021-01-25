@@ -8,6 +8,9 @@ const Intern = require("./lib/Intern.js")
 const inquirer = require("inquirer")
 const fs = require("fs")
 
+// create empty list to push employees to later
+var team = []
+
 // shared questions: 
 var sharedQs = [
     {
@@ -88,10 +91,34 @@ function addNew() {
                 console.log(answers2.officeNum)
                 const manager = new Manager(answers.name, answers.id, answers.email, answers2.officeNum, answers.role)
                 console.log(manager)
+                team.push(manager);
+                console.log(team);
                 addMore()
             });
-        }}
-    )
+        } else if (answers.role === "Engineer") {
+
+            inquirer.prompt([{
+                type: 'input',
+                name: 'github',
+                message: "Enter Engineer's github account name",
+                validate: github => {
+                    if (github) {
+                        return true
+                    } else {
+                        console.log(' Please enter valid office number');
+                        return false
+                    }
+                }
+            }])
+            .then(answers2=> {
+                console.log(answers2.github)
+                const engineer = new Engineer(answers.name, answers.id, answers.email, answers2.github, answers.role)
+                team.push(engineer);
+                console.log(team);
+                addMore();
+            })
+        }
+    })
 }
 
 function addMore() {
