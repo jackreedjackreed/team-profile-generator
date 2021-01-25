@@ -25,6 +25,19 @@ var sharedQs = [
     },
     {
         type: 'input',
+        name: 'id',
+        message: "Enter employee's id",
+        validate: id => {
+            if (id) {
+                return true
+            } else {
+                console.log("Please enter a valid id")
+                return false
+            }
+        }
+    },
+    {
+        type: 'input',
         name: 'email',
         message: "Enter employee's email address",
         validate: email => {
@@ -36,23 +49,11 @@ var sharedQs = [
             }
         }
     }, 
-    {
-        type: 'input',
-        name: 'id',
-        message: "Enter employee's id",
-        validate: id => {
-            if (id) {
-                return true
-            } else {
-                console.log("Please enter a valid id")
-                return false
-            }
-        }
-    }
+    
 ]
 
 // application function
-function runApp() {
+function addNew() {
     inquirer
     .prompt([
         sharedQs[0],
@@ -83,16 +84,34 @@ function runApp() {
                 }
             }])
             // create manager object
-            .then(answers => {
-                console.log(answers.officeNum)
-                const manager = new Manager(answers.name, answers.email, answers.id, answers.role, answers.officeNum )
-                console.log(manager);
+            .then(answers2 => {
+                console.log(answers2.officeNum)
+                const manager = new Manager(answers.name, answers.id, answers.email, answers2.officeNum, answers.role)
+                console.log(manager)
+                addMore()
             });
         }}
     )
 }
 
-runApp()
+function addMore() {
+    inquirer
+    .prompt([{
+        type: 'confirm',
+        name: 'addMore',
+        message: 'Would you like to add another team member?',
+    }])
+    .then(answer => {
+        if (answer.addMore) {
+            addNew()
+        } else {
+            console.log("okay ur done then")
+        }
+    })
+}
+
+
+addNew()
 
 // prompt user for team information
      // manager --> first
