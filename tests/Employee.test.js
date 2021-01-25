@@ -1,9 +1,5 @@
 // The first class is an `Employee` parent class with the following properties and methods:
-const { describe, expect, it } = require("@jest/globals");
 const Employee = require("../lib/Employee.js")
-
-
-const example = new Employee("Jerf", "B870943", "Jerf@email.com");
 
 describe("Employee", () => {
     describe("Initialization", () => {
