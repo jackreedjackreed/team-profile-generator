@@ -169,12 +169,18 @@ function addMore() {
             addNew()
         } else {
             console.log("okay ur done then")
+            console.log("exporting your team, then generating your site...")
+            // export { team as team };
         }
     })
 }
 
 
 addNew()
+
+const addNewToExport = addNew()
+
+module.exports = addNewToExport
 
 // prompt user for team information
      // manager --> first
