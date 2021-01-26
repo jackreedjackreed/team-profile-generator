@@ -4,6 +4,9 @@ const Manager = require("./lib/Manager.js")
 const Engineer = require("./lib/Engineer.js")
 const Intern = require("./lib/Intern.js")
 
+// const jim = new Employee("jerf", "3", "@gmail.com", "Employee")
+// console.log(jim);
+
 // require modules
 const inquirer = require("inquirer")
 const fs = require("fs")
@@ -61,7 +64,7 @@ var sharedQs = [
     
 ]
 
-// application function
+// add new member function
 function addNew() {
     inquirer
     .prompt([
@@ -145,13 +148,13 @@ function addNew() {
 
             // if employee, ask make new employee
         } else if (answers.role = "Employee") {
-                const Employee = new Employee(answers.name, answers.id, answers.email, answers.role)
-                team.push(Employee);
+                console.log("right before initialization ")
+                const employee = new Employee(answers.name, answers.id, answers.email, answers.role = "Employee")
+                team.push(employee);
                 console.log(team);
                 addMore();
-            }
         }
-    )
+    })
 }
 
 function addMore() {
