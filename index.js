@@ -4,14 +4,11 @@ const Manager = require("./lib/Manager.js")
 const Engineer = require("./lib/Engineer.js")
 const Intern = require("./lib/Intern.js")
 
-// const jim = new Employee("jerf", "3", "@gmail.com", "Employee")
-// console.log(jim);
-
 // require modules
 const inquirer = require("inquirer")
 const fs = require("fs")
 
-
+// import generateTeam function
 const generateTeam = require("./lib/page-template.js")
 
 // create empty list to push employees to later
@@ -97,7 +94,6 @@ function addNew() {
             .then(answers2 => {
                 const manager = new Manager(answers.name, answers.id, answers.email, answers2.officeNum, answers.role)
                 team.push(manager);
-                console.log(team);
                 addMore()
             });
 
@@ -121,7 +117,6 @@ function addNew() {
                 console.log(answers2.github)
                 const engineer = new Engineer(answers.name, answers.id, answers.email, answers2.github, answers.role)
                 team.push(engineer);
-                console.log(team);
                 addMore();
             })
         
@@ -142,19 +137,15 @@ function addNew() {
                 }
             }])
             .then(answers2 => {
-                console.log(answers2.school)
                 const intern = new Intern(answers.name, answers.id, answers.email, answers2.school, answers.role)
                 team.push(intern);
-                console.log(team);
                 addMore();
             })
 
             // if employee, ask make new employee
         } else if (answers.role = "Employee") {
-                console.log("right before initialization ")
                 const employee = new Employee(answers.name, answers.id, answers.email, answers.role = "Employee")
                 team.push(employee);
-                console.log(team);
                 addMore();
         }
     })
@@ -172,11 +163,7 @@ function addMore() {
             addNew()
         } else {
 
-            console.log("okay ur done then")
-            console.log("generating your site...")
             const generatedHTML = generateTeam(team)
-            console.log("here's your html output: ")
-            console.log(generatedHTML);
 
             fs.writeFile("./dist/index.html", generatedHTML, (err) => {
                 if (err) {
@@ -190,25 +177,3 @@ function addMore() {
 }
 
 addNew()
-
-// const addNewToExport = addNew()
-
-// module.exports = addNewToExport
-
-// prompt user for team information
-     // manager --> first
-        // name, employee ID, email address, office number
-    // AFTER MANAGER --> add engineer, add intern, or finish building
-        // engineer
-            // name, ID, email, github username --> then back to MENU
-        // intern
-            // name, ID, email, school --> MENU
-        // employee (?)
-
-    // FINISH TEAM --> generate HTML
-
-   
-
-// in the html
-    // click an email address and open default email program
-    // click github username and open in new tab
