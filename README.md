@@ -43,7 +43,7 @@
 
  ## Demo 
 
-(src/team-profile-generator.png)
+<img src="./src/team-profile-generator.png" alt="screnshot of application">
 
 [Live Demo] https://drive.google.com/file/d/1IDDmUTcRI0vwIiSUbDQnO1FfHAoxSv35/view
 
