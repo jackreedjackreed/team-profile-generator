@@ -8,10 +8,8 @@
   ## License 
 
   This repository is licensed under: MIT 
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
-  (https://opensource.org/licenses/MIT)
-  https://choosealicense.com/licenses/mit/
-  
+  ![License: MIT (https://img.shields.io/badge/License-MIT-yellow.svg)
+
   ## Table of Contents
   * [Description](#description)
   * [License](#license)
@@ -47,7 +45,7 @@
 
 [Live Demo] https://drive.google.com/file/d/1IDDmUTcRI0vwIiSUbDQnO1FfHAoxSv35/view
 
-  MIT License
+  ## MIT License
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
