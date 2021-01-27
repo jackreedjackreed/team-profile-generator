@@ -171,16 +171,23 @@ function addMore() {
         if (answer.addMore) {
             addNew()
         } else {
+
             console.log("okay ur done then")
             console.log("generating your site...")
-            const generatedCards = generateTeam(team)
-            console.log(generatedCards);
-            return generatedCards
-            // export { team as team };
+            const generatedHTML = generateTeam(team)
+            console.log("here's your html output: ")
+            console.log(generatedHTML);
+
+            fs.writeFile("./dist/index.html", generatedHTML, (err) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("HTML created successfully! Go check out dist...")
+                }
+            })
         }
     })
 }
-
 
 addNew()
 
