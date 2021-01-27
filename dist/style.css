@@ -7,7 +7,9 @@ body, .container {
 }
 
 .employee-card {
-    background-color: oldlace
+    background-color: oldlace;
+    padding: 3px;
+    margin: 8px;
 }
 
 .card-header {
