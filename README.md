@@ -7,8 +7,9 @@
 
   ## License 
 
-  This repository is licensed under:  
-  [![License: MIT] (https://img.shields.io/badge/License-MIT-yellow.svg)
+  This repository is licensed under:   
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
   
 
 
