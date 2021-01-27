@@ -11,6 +11,9 @@ const Intern = require("./lib/Intern.js")
 const inquirer = require("inquirer")
 const fs = require("fs")
 
+
+const generateTeam = require("./lib/page-template.js")
+
 // create empty list to push employees to later
 var team = []
 
@@ -169,7 +172,10 @@ function addMore() {
             addNew()
         } else {
             console.log("okay ur done then")
-            console.log("exporting your team, generating your site...")
+            console.log("generating your site...")
+            const generatedCards = generateTeam(team)
+            console.log(generatedCards);
+            return generatedCards
             // export { team as team };
         }
     })
